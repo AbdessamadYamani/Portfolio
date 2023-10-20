@@ -31,7 +31,7 @@ export default class Environment {
     }
 
     setSunlight() {
-        this.sunLight = new THREE.DirectionalLight("#ffffff", 3);
+        this.sunLight = new THREE.DirectionalLight("#ffff00", 10);
         this.sunLight.castShadow = true;
         this.sunLight.shadow.camera.far = 20;
         this.sunLight.shadow.mapSize.set(2048, 2048);
@@ -47,8 +47,8 @@ export default class Environment {
     }
 
     switchTheme(theme) {
-        // console.log(this.sunLight);
         if (theme === "dark") {
+            // Dark mode: Keep the original colors and intensities
             GSAP.to(this.sunLight.color, {
                 r: 0.17254901960784313,
                 g: 0.23137254901960785,
@@ -66,15 +66,16 @@ export default class Environment {
                 intensity: 0.78,
             });
         } else {
+            // Light mode: Set sun and ambient light color to yellow or a sun-like color
             GSAP.to(this.sunLight.color, {
-                r: 255 / 255,
-                g: 255 / 255,
-                b: 255 / 255,
+                r: 1.0,  // Adjust these values for your desired shade of yellow
+                g: 0.9,  // Adjust these values for your desired shade of yellow
+                b: 0.1,  // Adjust these values for your desired shade of yellow
             });
             GSAP.to(this.ambientLight.color, {
-                r: 255 / 255,
-                g: 255 / 255,
-                b: 255 / 255,
+                r: 1.0,  // Adjust these values for your desired shade of yellow
+                g: 0.9,  // Adjust these values for your desired shade of yellow
+                b: 0.1,  // Adjust these values for your desired shade of yellow
             });
             GSAP.to(this.sunLight, {
                 intensity: 3,
@@ -84,6 +85,7 @@ export default class Environment {
             });
         }
     }
+    
 
     resize() {}
 
