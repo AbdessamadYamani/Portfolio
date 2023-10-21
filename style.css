@@ -30,10 +30,16 @@ svg{
   --color-green-light: #7AD0AC;
   --color-blue-light: #8395CD;
   --color-blue-yellow: #FDFFAE;
+  --color-dates-dark: #fdff83;
+  --color-dates-light: #6e7dff;
+  
 
   /* Dark Theme Variables */
   --color-text-dark: #ffe9b37e;
   --color-background-dark: #8396cd72;
+
+  --color-Hi-light:var(--color-background-dark);
+  --color-Hi-dark:var(--color-green-light);
 }
 
 .light-theme{
@@ -42,6 +48,8 @@ svg{
   --color-pink: var(--color-pink-light);
   --color-green: var(--color-green-light);
   --color-blue: var(--color-blue-light);
+  --color-Hi:var(--color-background-dark);
+  --color-dates:var( --color-dates-light);
 }
 
 .dark-theme{
@@ -50,6 +58,9 @@ svg{
   --color-pink: var(--color-text-dark);
   --color-green: var(--color-text-dark);
   --color-blue: var(--color-text-dark);
+  --color-Hi:var(--color-text-light);
+  
+  --color-dates:var( --color-dates-dark);
 }
 
 /* Experience --------------------------------------------- */
@@ -59,7 +70,11 @@ svg{
   width: 100vw;
   height: 100vh;
 }
-
+.highlight {
+  background-color: var(--color-Hi);
+  font-weight: bold;
+  
+}
 .experience-canvas{
   width: 100%;
   height: 100%;
@@ -86,7 +101,32 @@ svg{
   width: 100%;
   height: 100%;
 }
+.institution {
+  font-size: 24px;
+  color: var(--color-dates);
+  margin: 0;
+}
 
+.institution a {
+  text-decoration: none;
+  color: var(--color-dates);
+}
+
+.institution a:hover {
+  text-decoration: underline;
+}
+
+.degree {
+  font-size: 18px;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.date {
+  font-size: 14px;
+  color: var(--color-dates);
+  margin: 0;
+}
 .loading{
   display: flex;
   justify-content: center;
