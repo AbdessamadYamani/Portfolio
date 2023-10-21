@@ -97,7 +97,7 @@ export default class Controls {
                 this.camera.orthographicCamera.position.set(0, 6.5, 10);
                 this.room.position.set(0, 0, 0);
                 // First section -----------------------------------------
-                this.firstMoveTimeline = new GSAP.timeline({
+this.firstMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".first-move",
                         start: "top top",
@@ -106,7 +106,6 @@ export default class Controls {
                         // markers: true,
                         invalidateOnRefresh: true,
                     },
-                    
                 });
                 
                 this.firstMoveTimeline.fromTo(
@@ -114,11 +113,9 @@ export default class Controls {
                     { x: 0, y: 0, z: 0 },
                     {
                         x: () => {
-                            return 1
+                            return this.sizes.width * 0.0014;
                         },
-                        
                     }
-                   
                 );
                 
                 
@@ -177,9 +174,14 @@ export default class Controls {
                         invalidateOnRefresh: true,
                     },
                 }).to(this.camera.orthographicCamera.position, {
-                    y: 1.5,
-                    x: -4.1,
-                });
+                    y: 13,
+                    x: 4,
+                }),"same"
+                .to(this.camera.orthographicCamera.rotation, {
+                    
+                    x: 2,
+                }),"same"
+                ;
             },
 
             // Mobile
