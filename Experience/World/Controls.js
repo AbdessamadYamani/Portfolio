@@ -107,18 +107,6 @@ export default class Controls {
                         invalidateOnRefresh: true,
                     },
                     
-                }).to(
-                    this.room.scale,
-                    {
-                        x: 0.7,
-                        y: 0.7,
-                        z: 0.7,
-                    },
-                    "same"
-                )
-                .to(this.camera.orthographicCamera.position, {
-                    y: 1.5,
-                    x: -4.1,
                 });
                 
                 this.firstMoveTimeline.fromTo(
