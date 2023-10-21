@@ -106,16 +106,34 @@ export default class Controls {
                         // markers: true,
                         invalidateOnRefresh: true,
                     },
+                    
+                }).to(
+                    this.room.scale,
+                    {
+                        x: 0.7,
+                        y: 0.7,
+                        z: 0.7,
+                    },
+                    "same"
+                )
+                .to(this.camera.orthographicCamera.position, {
+                    y: 1.5,
+                    x: -4.1,
                 });
+                
                 this.firstMoveTimeline.fromTo(
                     this.room.position,
                     { x: 0, y: 0, z: 0 },
                     {
                         x: () => {
-                            return this.sizes.width * 0.0014;
+                            return 1
                         },
+                        
                     }
+                   
                 );
+                
+                
 
                 // Second section -----------------------------------------
                 this.secondMoveTimeline = new GSAP.timeline({
@@ -131,10 +149,11 @@ export default class Controls {
                         this.room.position,
                         {
                             x: () => {
-                                return 1;
+                                return 2;
                             },
+                            
                             z: () => {
-                                return this.sizes.height * 0.0032;
+                                return 8;
                             },
                         },
                         "same"
@@ -142,9 +161,9 @@ export default class Controls {
                     .to(
                         this.room.scale,
                         {
-                            x: 0.4,
-                            y: 0.4,
-                            z: 0.4,
+                            x: 0.7,
+                            y: 0.7,
+                            z: 0.7,
                         },
                         "same"
                     )
@@ -155,7 +174,10 @@ export default class Controls {
                             height: 0.7 * 4,
                         },
                         "same"
-                    );
+                    )
+                    
+                    ;
+                    
 
                 // Third section -----------------------------------------
                 this.thirdMoveTimeline = new GSAP.timeline({
